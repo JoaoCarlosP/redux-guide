@@ -6,12 +6,12 @@ import Cart from "../cart/index"
 
 // Styles
 import * as Styles from "./styles"
+import { userLogin, userLogout } from "../../redux/user/actions"
 
 function Header() {
   const [cartIsVisible, setCartIsVisible] = useState(false)
 
-  const { currentUser } = useSelector(rootReducer => rootReducer.userReducer)
-  console.log(currentUser)
+  const { currentUser } = useSelector(selector => selector.userReducer)
   
   const dispatch = useDispatch()
 
@@ -20,17 +20,28 @@ function Header() {
   }
 
   const handleLoginClick = () => {
-    dispatch({
-      type: 'user/login',
-      payload: { name: 'João Carlos', email: 'joaocarlosjoe74@gmail.com' }
-    })
+    dispatch(
+      userLogin({
+        name: 'João Carlos',
+        email: 'joaocarlosjoe74@gmail.com'
+      })
+    )
+  }
+
+  const handleLogoutClick = () => {
+    dispatch(
+      userLogout()
+    )
   }
 
   return (
     <Styles.Container>
       <Styles.Logo>Redux Shopping</Styles.Logo>
       <Styles.Buttons>
-        <div onClick={handleLoginClick}>Login</div>
+        {!!currentUser
+          ? <div onClick={handleLogoutClick}>Sair</div>
+          : <div onClick={handleLoginClick}>Login</div>
+        }
         <div onClick={handleCartClick}>Carrinho</div>
       </Styles.Buttons>
 
