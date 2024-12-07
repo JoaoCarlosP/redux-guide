@@ -1,6 +1,6 @@
-const userReducerTypes = {
+const UserReducerTypes = {
   LOGIN: 'user/login',
   LOGOUT: 'user/logout'
 }
 
-export default userReducerTypes
+export default UserReducerTypes

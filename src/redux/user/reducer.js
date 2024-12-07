@@ -1,4 +1,4 @@
-import userReducerTypes from "./user-reducer-types"
+import UserReducerTypes from "./user-reducer-types"
 
 const initialState = {
   currentUser: null
@@ -7,13 +7,12 @@ const initialState = {
 // Nossa "entidade" -> UserReducer
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case userReducerTypes.LOGIN:
+    case UserReducerTypes.LOGIN:
       return { ...state, currentUser: action.payload }
-    case userReducerTypes.LOGOUT:
+    case UserReducerTypes.LOGOUT:
       return { ...state, currentUser: null }
-    default: {
+    default:
       return state
-    }
   }
 }
 

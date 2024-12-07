@@ -22,8 +22,8 @@ export const ProductInfo = styled.div`
 
 export const ProductImage = styled.div`
   background-image: ${(props) => `url('${props.imageUrl}')`};
-  height: 380px;
-  width: 300px;
+  height: 320px;
+  width: 250px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -34,6 +34,16 @@ export const ProductImage = styled.div`
   transition: all 0.3s ease;
   background-color: transparent;
   background-blend-mode: color;
+
+  @media (max-width: 1200px) {
+    width: 300px;
+    heigth: 400px;
+  }
+
+  @media (max-width: 992px) {
+    width: 350px;
+    heigth: 400px;
+  }
 
   button {
     visibility: hidden;

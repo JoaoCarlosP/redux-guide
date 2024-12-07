@@ -1,15 +1,15 @@
-import userReducerTypes from "./user-reducer-types"
+import UserReducerTypes from "./user-reducer-types"
 
 const userLogin = (payload) => {
   return {
-    type: userReducerTypes.LOGIN,
+    type: UserReducerTypes.LOGIN,
     payload
   }
 }
 
 const userLogout = () => {
   return {
-    type: userReducerTypes.LOGOUT
+    type: UserReducerTypes.LOGOUT
   }
 }
 
