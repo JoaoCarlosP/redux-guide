@@ -29,6 +29,45 @@ const cartReducer = (state = initialState, action) => {
     }
   }
 
+  case (CartReducerTypes.REMOVE_PRODUCT): {
+    const updateProductList = state.products.filter(product => product.id !== action.payload.productId)
+
+    return {
+      ...state,
+      products: updateProductList
+    }
+  }
+
+  case (CartReducerTypes.DECREASE_PRODUCT): {    
+    const updateProductList = state.products.map((product) => {
+      if (product.id === action.payload.productId) {
+        if (product.quantity === 1) {
+          return null
+        }
+
+        return { ...product, quantity: product.quantity - 1}
+      }
+      return product
+    }).filter(Boolean)
+
+    return {
+      ...state,
+      products: updateProductList
+    }
+  }
+
+  case (CartReducerTypes.INCREASE_PRODUCT): {
+    const updateProductList = state.products.map(product => {
+      if (product.id === action.payload.productId) return { ...product, quantity: product.quantity + 1 }
+      return product
+    })
+
+    return {
+      ...state,
+      products: updateProductList
+    }
+  }
+
     default:
       return state
   }
