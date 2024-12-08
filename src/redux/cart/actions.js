@@ -14,16 +14,16 @@ const removeProductFromCart = (payload) => {
   }
 }
 
-const decreaseProductFromCart = (payload) => {
+const decreaseProductQuantity = (payload) => {
   return {
-    type: CartReducerTypes.DECREASE_PRODUCT,
+    type: CartReducerTypes.DECREASE_PRODUCT_QUANTITY,
     payload
   }
 }
 
-const increaseProductToCart = (payload) => {
+const increaseProductQuantity = (payload) => {
   return {
-    type: CartReducerTypes.INCREASE_PRODUCT,
+    type: CartReducerTypes.INCREASE_PRODUCT_QUANTITY,
     payload
   }
 }
@@ -31,6 +31,6 @@ const increaseProductToCart = (payload) => {
 export {
   addProductToCart,
   removeProductFromCart,
-  increaseProductToCart,
-  decreaseProductFromCart,
+  increaseProductQuantity,
+  decreaseProductQuantity,
 }

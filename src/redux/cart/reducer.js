@@ -38,7 +38,7 @@ const cartReducer = (state = initialState, action) => {
     }
   }
 
-  case (CartReducerTypes.DECREASE_PRODUCT): {    
+  case (CartReducerTypes.DECREASE_PRODUCT_QUANTITY): {    
     const updateProductList = state.products.map((product) => {
       if (product.id === action.payload.productId) {
         if (product.quantity === 1) {
@@ -56,7 +56,7 @@ const cartReducer = (state = initialState, action) => {
     }
   }
 
-  case (CartReducerTypes.INCREASE_PRODUCT): {
+  case (CartReducerTypes.INCREASE_PRODUCT_QUANTITY): {
     const updateProductList = state.products.map(product => {
       if (product.id === action.payload.productId) return { ...product, quantity: product.quantity + 1 }
       return product
